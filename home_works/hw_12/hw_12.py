@@ -62,6 +62,15 @@ def main():
     print(f"Ключ: {key}, расшифровка: {decrypted_message}")
     print(f"Возможно ваш пароль: ['{decrypted_message}']")
 
+    filepath = input("Введите путь к файлу для записи: ")
+    try:
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(f"Ключ: {key}, расшифровка: {decrypted_message}\n")
+            f.write(f"Возможно ваш пароль: ['{decrypted_message}']\n")
+        print(f"Данные успешно записаны в файл {filepath}")
+    except Exception as e:
+        print(f"Ошибка при записи в файл: {e}")
+
 
 if __name__ == "__main__":
     main()
